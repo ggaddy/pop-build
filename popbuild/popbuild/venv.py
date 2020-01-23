@@ -5,7 +5,6 @@ Create and manage the venvs used for build environments
 import venv
 import os
 import subprocess
-import pdb
 
 OMIT = ('__pycache__', 'PyInstaller', 'pip', 'setuptools', 'pkg_resources', '__pycache__', 'dist-info', 'egg-info')
 
@@ -30,7 +29,6 @@ def create(hub, bname):
     Make a virtual environment based on the version of python used to call this script
     '''
     opts = hub.popbuild.BUILDS[bname]
-    pdb.set_trace()
     if opts['pyenv'] == 'system':
         venv.create(opts['venv_dir'], clear=True, with_pip=True, system_site_packages=opts['sys_site'])
     else:
